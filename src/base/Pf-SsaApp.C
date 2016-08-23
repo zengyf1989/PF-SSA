@@ -1,11 +1,11 @@
-#include "StorkApp.h"
+#include "Pf-SsaApp.h"
 #include "Moose.h"
 #include "AppFactory.h"
 #include "ModulesApp.h"
 #include "MooseSyntax.h"
 
 template<>
-InputParameters validParams<StorkApp>()
+InputParameters validParams<Pf-SsaApp>()
 {
   InputParameters params = validParams<MooseApp>();
 
@@ -16,40 +16,40 @@ InputParameters validParams<StorkApp>()
   return params;
 }
 
-StorkApp::StorkApp(InputParameters parameters) :
+Pf-SsaApp::Pf-SsaApp(InputParameters parameters) :
     MooseApp(parameters)
 {
   Moose::registerObjects(_factory);
   ModulesApp::registerObjects(_factory);
-  StorkApp::registerObjects(_factory);
+  Pf-SsaApp::registerObjects(_factory);
 
   Moose::associateSyntax(_syntax, _action_factory);
   ModulesApp::associateSyntax(_syntax, _action_factory);
-  StorkApp::associateSyntax(_syntax, _action_factory);
+  Pf-SsaApp::associateSyntax(_syntax, _action_factory);
 }
 
-StorkApp::~StorkApp()
+Pf-SsaApp::~Pf-SsaApp()
 {
 }
 
 // External entry point for dynamic application loading
-extern "C" void StorkApp__registerApps() { StorkApp::registerApps(); }
+extern "C" void Pf-SsaApp__registerApps() { Pf-SsaApp::registerApps(); }
 void
-StorkApp::registerApps()
+Pf-SsaApp::registerApps()
 {
-  registerApp(StorkApp);
+  registerApp(Pf-SsaApp);
 }
 
 // External entry point for dynamic object registration
-extern "C" void StorkApp__registerObjects(Factory & factory) { StorkApp::registerObjects(factory); }
+extern "C" void Pf-SsaApp__registerObjects(Factory & factory) { Pf-SsaApp::registerObjects(factory); }
 void
-StorkApp::registerObjects(Factory & factory)
+Pf-SsaApp::registerObjects(Factory & factory)
 {
 }
 
 // External entry point for dynamic syntax association
-extern "C" void StorkApp__associateSyntax(Syntax & syntax, ActionFactory & action_factory) { StorkApp::associateSyntax(syntax, action_factory); }
+extern "C" void Pf-SsaApp__associateSyntax(Syntax & syntax, ActionFactory & action_factory) { Pf-SsaApp::associateSyntax(syntax, action_factory); }
 void
-StorkApp::associateSyntax(Syntax & /*syntax*/, ActionFactory & /*action_factory*/)
+Pf-SsaApp::associateSyntax(Syntax & /*syntax*/, ActionFactory & /*action_factory*/)
 {
 }
